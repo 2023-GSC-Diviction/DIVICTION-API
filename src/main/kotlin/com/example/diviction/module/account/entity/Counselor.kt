@@ -48,9 +48,6 @@ class Counselor(
     @OneToMany(mappedBy = "counselor", cascade = [CascadeType.REMOVE], orphanRemoval = true)
     var matching_list : MutableList<Matching> =  mutableListOf()
 
-    @OneToMany(mappedBy = "consultCounselor", cascade = [CascadeType.REMOVE], orphanRemoval = true)
-    var consultingList : MutableList<Consulting> = mutableListOf()
-
     var introduce : String? = null
 
     var representative_service : String? = null
