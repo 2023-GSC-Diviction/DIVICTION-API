@@ -10,12 +10,7 @@ create table diviction.member
     address         VARCHAR(256) NOT NULL,
     gender          VARCHAR(32)  NOT NULL,
     profile_img_url VARCHAR(256) NOT NULL,
-    authority       VARCHAR(32)  NOT NULL,
-    introduce       VARCHAR(1024),
-    representative_service VARCHAR(256),
-    activity_area   VARCHAR(512),
-    contact_hours   VARCHAR(256),
-    contact         VARCHAR(1024)
+    authority       VARCHAR(32)  NOT NULL
 );
 create table diviction.counselor
 (
@@ -28,6 +23,11 @@ create table diviction.counselor
     gender          VARCHAR(32)  NOT NULL,
     profile_img_url VARCHAR(256) NOT NULL,
     confirm         BOOLEAN,
+    introduce       VARCHAR(1024),
+    representative_service VARCHAR(256),
+    activity_area   VARCHAR(512),
+    contact_hours   VARCHAR(256),
+    contact         VARCHAR(1024),
     authority       VARCHAR(32)  NOT NULL
 );
 create table diviction.drug
