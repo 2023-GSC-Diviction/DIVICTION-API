@@ -1,5 +1,6 @@
 package com.example.diviction.module.account.controller
 
+import com.example.diviction.module.account.dto.CounselorDetailInfoUpdateRequestDto
 import com.example.diviction.module.account.dto.MatchResponseDto
 import com.example.diviction.module.account.dto.ResponseCounselorDto
 import com.example.diviction.module.account.service.CounselorService
@@ -69,6 +70,11 @@ class CounselorController (
         counselorService.updateCounselorImg(counselorId,multipartFile)
     }
 
-
-
+    @Operation(description = "상담사 세부 프로필 정보 업데이트")
+    @PostMapping("/update/detail")
+    fun updateCounselorDetailInfo(
+         @RequestBody counselorDetailInfoUpdateRequestDto: CounselorDetailInfoUpdateRequestDto
+    ) {
+        counselorService.updateCounselorDetailInfo(counselorDetailInfoUpdateRequestDto)
+    }
 }
