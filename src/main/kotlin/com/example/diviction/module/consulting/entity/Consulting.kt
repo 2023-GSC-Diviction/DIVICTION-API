@@ -1,26 +1,19 @@
 package com.example.diviction.module.consulting.entity
 
-import com.example.diviction.module.account.entity.Counselor
-import com.example.diviction.module.account.entity.Member
+import com.example.diviction.module.account.entity.Matching
 import com.fasterxml.jackson.annotation.JsonFormat
 import lombok.Getter
-import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 import javax.persistence.*
 import javax.validation.constraints.NotBlank
-import javax.validation.constraints.Pattern
 
 @Entity
 @Getter
 @Table(name ="consulting")
 class Consulting(
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id", nullable = false)
-    val consultPatient : Member,
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "counselor_id",nullable = false)
-    val consultCounselor : Counselor,
+    @JoinColumn(name = "matching_id", nullable = false)
+    val matching : Matching,
 
     @field: NotBlank
     var content : String,
