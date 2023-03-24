@@ -3,8 +3,6 @@ package com.example.diviction.module.account.entity
 import com.example.diviction.module.DAST.entity.Dast
 import com.example.diviction.module.checklist.entity.CheckList
 import com.example.diviction.module.constant.Gender
-import com.example.diviction.module.consulting.entity.Consulting
-import com.example.diviction.module.diagnosis.entity.DiagnosisResult
 import com.example.diviction.security.constants.Authority
 import com.fasterxml.jackson.annotation.JsonProperty
 import lombok.Getter
@@ -50,17 +48,6 @@ class Member(
 
     @OneToOne(mappedBy = "patient", cascade = [CascadeType.REMOVE], orphanRemoval = true)
     var matching: Matching? = null
-
-    @OneToMany(mappedBy = "member", cascade = [CascadeType.REMOVE], orphanRemoval = true)
-    var diagnosisList: MutableList<DiagnosisResult> = mutableListOf()
-
-    @OneToMany(
-        mappedBy = "consultPatient",
-        targetEntity = Consulting::class,
-        cascade = [CascadeType.REMOVE],
-        orphanRemoval = true
-    )
-    var consultingList: MutableList<Consulting> = mutableListOf()
 
     @OneToMany(
         mappedBy = "checkPatient",
