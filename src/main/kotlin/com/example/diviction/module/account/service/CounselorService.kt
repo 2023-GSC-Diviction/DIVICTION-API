@@ -2,6 +2,7 @@ package com.example.diviction.module.account.service
 
 import com.example.diviction.infra.gcp.GCP_URLs.COUNSELOR_BASIC_IMG_URL
 import com.example.diviction.infra.gcp.GcpStorageService
+import com.example.diviction.module.account.dto.CounselorDetailInfoUpdateRequestDto
 import com.example.diviction.module.account.dto.MatchResponseDto
 import com.example.diviction.module.account.dto.ResponseCounselorDto
 import com.example.diviction.module.account.dto.ResponseMemberDto
@@ -128,6 +129,18 @@ class CounselorService(
         } else {
             counselor.profile_img_url = gcpStorageService.uploadFileToGCS(multipartFile)
         }
+    }
+
+    fun updateCounselorDetailInfo(
+         counselorDetailInfoUpdateRequestDto: CounselorDetailInfoUpdateRequestDto
+    ) {
+        val counselor = counselorRepository.getById(counselorDetailInfoUpdateRequestDto.id)
+        counselor.introduce = counselorDetailInfoUpdateRequestDto.introduce
+        counselor.representative_service = counselorDetailInfoUpdateRequestDto.representative_service
+        counselor.activity_area = counselorDetailInfoUpdateRequestDto.activity_area
+        counselor.contact_hours = counselorDetailInfoUpdateRequestDto.contact_hours
+        counselor.contact = counselorDetailInfoUpdateRequestDto.contact
+        counselorRepository.save(counselor)
     }
 
     fun Member.toResponseDto() : ResponseMemberDto = ResponseMemberDto(id!!,email, password, name, birth, address, gender, profile_img_url)
