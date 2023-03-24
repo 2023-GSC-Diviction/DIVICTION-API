@@ -21,5 +21,15 @@ data class RequestCounselorDto (
 
     var confirm : Boolean,
 
+    var introduce : String,
+
+    var representative_service : String,
+
+    var activity_area : String,
+
+    var contact_hours : String,
+
+    var contact : String,
+
     var multipartFile: MultipartFile?
 )
