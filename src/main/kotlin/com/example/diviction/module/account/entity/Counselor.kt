@@ -35,12 +35,6 @@ class Counselor(
     @Enumerated(EnumType.STRING)
     val authority : Authority,
 
-    var introduce : String,
-    var representative_service : String,
-    var activity_area : String,
-    var contact_hours : String,
-    var contact : String
-
 ){
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,4 +50,14 @@ class Counselor(
 
     @OneToMany(mappedBy = "consultCounselor", cascade = [CascadeType.REMOVE], orphanRemoval = true)
     var consultingList : MutableList<Consulting> = mutableListOf()
+
+    var introduce : String? = null
+
+    var representative_service : String? = null
+
+    var activity_area : String? = null
+
+    var contact_hours : String? = null
+
+    var contact : String? = null
 }
