@@ -10,7 +10,12 @@ create table diviction.member
     address         VARCHAR(256) NOT NULL,
     gender          VARCHAR(32)  NOT NULL,
     profile_img_url VARCHAR(256) NOT NULL,
-    authority       VARCHAR(32)  NOT NULL
+    authority       VARCHAR(32)  NOT NULL,
+    introduce       VARCHAR(1024),
+    representative_service VARCHAR(256),
+    activity_area   VARCHAR(512),
+    contact_hours   VARCHAR(256),
+    contact         VARCHAR(1024)
 );
 create table diviction.counselor
 (
@@ -45,23 +50,10 @@ create table diviction.matching
     FOREIGN KEY (patient_id) REFERENCES diviction.member (id),
     FOREIGN KEY (counselor_id) REFERENCES diviction.counselor (id)
 );
-create table diviction.diagnosis_result
-(
-    id      BIGINT AUTO_INCREMENT PRIMARY KEY,
-    user_id BIGINT      NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES diviction.member (id),
-    date    VARCHAR(32) NOT NULL,
-    vP1     BIGINT      NOT NULL,
-    vP2     BIGINT      NOT NULL,
-    vP3     BIGINT      NOT NULL
-);
 create table diviction.consulting
 (
     id           BIGINT AUTO_INCREMENT PRIMARY KEY,
-    patient_id   BIGINT        NOT NULL,
-    foreign key (patient_id) REFERENCES diviction.member (id),
-    counselor_id BIGINT        NOT NULL,
-    foreign key (counselor_id) REFERENCES diviction.counselor (id),
+    matching_id  BIGINT        NOT NULL REFERENCES diviction.matching (id),
     content      VARCHAR(2048) NOT NULL,
     date         VARCHAR(32)   NOT NULL
 );
