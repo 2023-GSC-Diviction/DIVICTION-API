@@ -35,8 +35,9 @@ class ConsultingService(
     fun getConsultingLogByPatientId(patient_id : Long) : List<ConsultResponseDto>
     {
         var member = memberRepository.getById(patient_id)
+        val match = matchRepository.findByPatient(member!!).get()
 
-        var page = consultingRepository.findByConsultPatientOrderByDateDesc(member, Pageable.ofSize(10))
+        var page = consultingRepository.findAllByMatchingOrderByDateDesc(match, Pageable.ofSize(10))
 
         var list = page?.content ?: null
 
@@ -56,9 +57,10 @@ class ConsultingService(
     @Transactional
     fun getConsultingLogByPatientEmail(patient_email : String) : List<ConsultResponseDto>
     {
-        var member = memberRepository.getByEmail(patient_email)
+        val member = memberRepository.getByEmail(patient_email)
+        val match = matchRepository.findByPatient(member!!).get()
 
-        var page = consultingRepository.findByConsultPatientOrderByDateDesc(member!!, Pageable.ofSize(10))
+        var page = consultingRepository.findAllByMatchingOrderByDateDesc(match, Pageable.ofSize(10))
 
         var list = page?.content ?: null
 
