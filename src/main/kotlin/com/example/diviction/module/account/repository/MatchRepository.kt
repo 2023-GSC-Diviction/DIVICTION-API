@@ -9,4 +9,5 @@ interface MatchRepository : JpaRepository<Matching,Long> {
     override fun findById(id: Long): Optional<Matching>
 
     fun existsByPatient(patient : Member) : Boolean
+    fun findByPatient(patient : Member) : Optional<Matching>
 }
