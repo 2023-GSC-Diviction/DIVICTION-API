@@ -1,5 +1,6 @@
 package com.example.diviction.infra.gcp
 
+import com.example.diviction.ConfigureBucketCors
 import com.example.diviction.infra.gcp.GCP_URLs.USER_PROFILE_URL
 import com.google.cloud.storage.BlobInfo
 import com.google.cloud.storage.Storage
@@ -13,7 +14,6 @@ class GcpStorageService(
         private val storage: Storage,
         @Value("\${spring.cloud.gcp.storage.bucket}")
         private val bucketName: String
-
 ) {
     fun uploadFileToGCS(imageFile: MultipartFile): String {
         val randUUID = UUID.randomUUID().toString()
