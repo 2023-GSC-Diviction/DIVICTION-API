@@ -123,6 +123,11 @@ class CounselorService(
         multipartFile: MultipartFile?
     ){
         val counselor = counselorRepository.getById(counselorId)
+
+        if(counselor.profile_img_url != COUNSELOR_BASIC_IMG_URL) {
+            gcpStorageService.deleteFileToGCS(counselor.profile_img_url)
+        }
+
         if (multipartFile == null) {
             counselor.profile_img_url = COUNSELOR_BASIC_IMG_URL
         } else {

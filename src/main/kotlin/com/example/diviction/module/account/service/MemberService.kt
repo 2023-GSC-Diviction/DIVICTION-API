@@ -10,6 +10,7 @@ import com.example.diviction.module.account.entity.Member
 import com.example.diviction.module.account.repository.MemberRepository
 import org.springframework.stereotype.Service
 import org.springframework.web.multipart.MultipartFile
+import javax.transaction.Transactional
 
 @Service
 class MemberService(
@@ -75,12 +76,18 @@ class MemberService(
         return list
     }
 
+    @Transactional
     fun updateMemberImg(
         memberId : Long,
         multipartFile: MultipartFile?
     )
     {
         val member = memberRepository.getById(memberId)
+
+        if(member.profile_img_url != GCP_URLs.PATIENT_BASIC_IMG_URL) {
+            gcpStorageService.deleteFileToGCS(member.profile_img_url)
+        }
+
         if (multipartFile == null) {
             member.profile_img_url = GCP_URLs.PATIENT_BASIC_IMG_URL
         } else {
