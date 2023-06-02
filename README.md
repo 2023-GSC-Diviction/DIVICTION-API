@@ -107,20 +107,10 @@
 - 일상 회복을 위해 다양한 지원(직업 훈련, 연계)
 
 ---
+### Notion
+- ERD 확인 가능
 
-### Database ERD
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c4ab9212-af2c-4318-b2d4-0e16a9cdf586/Untitled.png)
-
-### GitHub : Rest API
-
-https://github.com/2023-GSC-Diviction/Diviction-API
-
-https://github.com/2023-GSC-Diviction/Diviction-API
-
-### Swagger
-
-http://15.164.100.67:8080/swagger-ui/index.html
+https://daisy-atmosphere-561.notion.site/Diviction-3584b8e39d48468983f45637dac8c46f?pvs=4
 
 ### Youtube
 
