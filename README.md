@@ -109,7 +109,7 @@
 ---
 ### Notion
 - ERD
-[Untitled!]https://user-images.githubusercontent.com/84346055/282286315-5f98f89c-f4fa-4f6e-ba9a-94258900be42.png
+[Untitled!](https://user-images.githubusercontent.com/84346055/282286315-5f98f89c-f4fa-4f6e-ba9a-94258900be42.png)
 
 https://daisy-atmosphere-561.notion.site/Diviction-3584b8e39d48468983f45637dac8c46f?pvs=4
 
